@@ -258,6 +258,36 @@ main { max-width: 1280px; margin: 0 auto; padding: 30px 24px 60px; }
 }
 .section-note strong { color: var(--ink-dim); }
 
+/* ---------- 语言切换 ---------- */
+.lang-btn {
+  background: var(--bg-soft); border: 1px solid var(--line); color: var(--gold);
+  width: 42px; height: 38px; border-radius: 999px; cursor: pointer;
+  font-size: 14px; font-weight: 600; letter-spacing: 1px; transition: all 0.2s;
+  font-family: var(--serif);
+}
+.lang-btn:hover { border-color: var(--gold); background: var(--gold-soft); }
+.header-tools { display: flex; align-items: center; gap: 10px; }
+
+/* ---------- 官方档案馆 ---------- */
+.archives {
+  max-width: 860px; margin: 0 auto 26px;
+  background: var(--bg-soft); border: 1px solid var(--line); border-radius: 10px;
+  padding: 12px 18px;
+}
+.archives summary { cursor: pointer; color: var(--gold); font-size: 14px; letter-spacing: 1px; }
+.arch-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 10px; margin-top: 14px;
+}
+.arch-item {
+  display: flex; flex-direction: column; gap: 3px; text-decoration: none;
+  background: var(--card); border: 1px solid var(--line); border-radius: 9px;
+  padding: 11px 14px; transition: border-color 0.2s;
+}
+.arch-item:hover { border-color: var(--gold); }
+.arch-name { font-size: 13.5px; color: var(--ink); font-family: var(--serif); letter-spacing: 0.5px; }
+.arch-desc { font-size: 11.5px; color: var(--ink-faint); line-height: 1.6; }
+
 /* ---------- 年度大奖时间轴 ---------- */
 .year-block { margin-bottom: 34px; }
 .year-head { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
@@ -281,7 +311,19 @@ main { max-width: 1280px; margin: 0 auto; padding: 30px 24px 60px; }
 .award-wpy  { background: rgba(110, 160, 90, 0.15);  color: #9ec487; }
 .award-sony { background: rgba(90, 140, 200, 0.15);  color: #8fb6e0; }
 .award-hass { background: var(--gold-soft);           color: var(--gold); }
-.award-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.award-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+.award-link {
+  flex-shrink: 0; align-self: center; text-decoration: none;
+  font-size: 12px; letter-spacing: 0.5px; color: var(--gold);
+  border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px;
+  white-space: nowrap; transition: all 0.2s;
+}
+.award-link:hover { border-color: var(--gold); background: var(--gold-soft); }
+.btn-official { text-decoration: none; display: inline-block; }
+@media (max-width: 700px) {
+  .award-row { flex-wrap: wrap; }
+  .award-link { align-self: flex-start; margin-left: 0; }
+}
 .award-title { font-family: var(--serif); font-size: 15.5px; font-weight: 600; color: var(--ink); }
 .award-title i { font-family: var(--display); font-weight: 500; color: var(--ink-faint); font-size: 13px; }
 .award-ph { font-size: 13px; color: var(--gold); }

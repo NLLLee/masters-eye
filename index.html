@@ -6,7 +6,7 @@
 <title>大师之眼 · The Masters' Eye — 世界经典摄影审美训练馆</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 
@@ -14,31 +14,25 @@
   <div class="header-inner">
     <div class="brand">
       <h1>大师之眼<span class="brand-en">The Masters' Eye</span></h1>
-      <p class="tagline">世界经典摄影作品鉴赏 · 审美训练馆</p>
+      <p class="tagline" id="tagline">世界经典摄影作品鉴赏 · 审美训练馆</p>
     </div>
     <div class="header-tools">
       <input id="searchInput" type="search" placeholder="搜索摄影师 / 作品 / 关键词…" aria-label="搜索">
+      <button id="langBtn" class="lang-btn" type="button" title="切换语言 / Switch language">EN</button>
     </div>
   </div>
 </header>
 
 <section class="hero">
-  <p class="hero-line">「你看过的好照片，决定了你能拍出的照片。」</p>
+  <p class="hero-line" id="heroLine"></p>
   <p class="hero-stats" id="heroStats"></p>
-  <details class="howto">
-    <summary>📖 怎么用这个网站练审美？（三步法）</summary>
-    <ol>
-      <li><strong>先看 10 秒</strong> — 打开一张卡片，先别读文字。问自己：第一眼被什么抓住？光从哪里来？画面让你产生什么情绪？</li>
-      <li><strong>再读分析</strong> — 对照「审美看点」与作品解读，检查你刚才看到了多少、漏掉了多少。</li>
-      <li><strong>最后看原作</strong> — 点「查看原作」搜索高清原图，把分析里讲的构图、光线、色彩在原图上逐一找出来。每天一张，坚持 90 天。</li>
-    </ol>
-  </details>
+  <details class="howto" id="howtoBox"></details>
 </section>
 
 <nav class="view-switch" id="viewSwitch">
-  <button class="view-tab active" data-view="masters" type="button">🖼 大师精选</button>
-  <button class="view-tab" data-view="awards" type="button">🏆 年度大奖 1990–2026</button>
-  <button class="view-tab" data-view="cloud" type="button">☁️ 云端图库</button>
+  <button class="view-tab active" data-view="masters" type="button"></button>
+  <button class="view-tab" data-view="awards" type="button"></button>
+  <button class="view-tab" data-view="cloud" type="button"></button>
 </nav>
 
 <!-- ============ 视图一：大师精选 ============ -->
@@ -46,13 +40,13 @@
   <nav class="filters">
     <div class="cat-tabs" id="catTabs"></div>
     <div class="filter-row">
-      <select id="sourceSelect" aria-label="按来源机构筛选"></select>
-      <button id="favToggle" class="chip-btn" type="button">♥ 我的收藏 <span id="favCount"></span></button>
+      <select id="sourceSelect" aria-label="source filter"></select>
+      <button id="favToggle" class="chip-btn" type="button"></button>
     </div>
   </nav>
   <main>
     <div class="grid" id="grid"></div>
-    <p class="empty" id="emptyMsg" hidden>没有匹配的作品 — 换个关键词试试。</p>
+    <p class="empty" id="emptyMsg" hidden></p>
   </main>
 </section>
 
@@ -61,13 +55,17 @@
   <nav class="filters">
     <div class="cat-tabs" id="awardChips"></div>
     <div class="filter-row">
-      <select id="yearSelect" aria-label="按年份筛选"></select>
+      <select id="yearSelect" aria-label="year filter"></select>
     </div>
   </nav>
   <main>
-    <p class="section-note">四大权威奖项历年得主真实档案。空缺年份为尚未核实或奖项未设立（WPY 创办于 1965 但本馆自 2005 年收录；Sony 世界摄影奖创办于 2008；2025–2026 年新揭晓奖项将持续补录）。点击任意条目可看解读并搜索原作。</p>
+    <p class="section-note" id="awardsNote"></p>
+    <details class="archives" id="archivesBox">
+      <summary id="archivesTitle"></summary>
+      <div class="arch-grid" id="archivesList"></div>
+    </details>
     <div id="awardsTimeline"></div>
-    <p class="empty" id="awardsEmpty" hidden>该年份暂无收录 — 试试相邻年份。</p>
+    <p class="empty" id="awardsEmpty" hidden></p>
   </main>
 </section>
 
@@ -76,36 +74,37 @@
   <nav class="filters">
     <div class="cat-tabs" id="cloudTabs"></div>
     <div class="filter-row">
-      <select id="cloudYearSelect" aria-label="按拍摄年份筛选"></select>
+      <select id="cloudYearSelect" aria-label="year filter"></select>
       <span class="cloud-count" id="cloudCount"></span>
     </div>
   </nav>
   <main>
-    <p class="section-note">实时加载自 <strong>Wikimedia Commons 全球精选图片</strong>（Featured Pictures，由全球社区从数千万张照片中评选，自由版权、附摄影师署名）。图片全部来自云端，不占用本地存储，且随社区评选<strong>自动更新</strong>。</p>
+    <p class="section-note" id="cloudNote"></p>
     <div class="grid" id="cloudGrid"></div>
     <p class="empty" id="cloudStatus" hidden></p>
-    <div class="load-more-wrap"><button id="cloudMore" class="btn-primary" type="button" hidden>↓ 加载更多</button></div>
+    <div class="load-more-wrap"><button id="cloudMore" class="btn-primary" type="button" hidden></button></div>
   </main>
 </section>
 
-<button id="randomBtn" class="random-btn" type="button" title="随机打开一件作品">🎲 每日一图</button>
+<button id="randomBtn" class="random-btn" type="button"></button>
 
 <div class="modal" id="modal" hidden>
   <div class="modal-backdrop" data-close></div>
   <div class="modal-card" role="dialog" aria-modal="true">
-    <button class="modal-close" data-close aria-label="关闭">×</button>
+    <button class="modal-close" data-close aria-label="close">×</button>
     <div class="modal-visual" id="modalVisual"></div>
     <div class="modal-body" id="modalBody"></div>
   </div>
 </div>
 
 <footer class="site-footer">
-  <p><strong>版权说明：</strong>本站为个人审美学习工具。「大师精选」与「年度大奖」不存储原作图片，卡片为按原作色调生成的示意图，点「查看原作」前往公开渠道欣赏；「云端图库」图片来自 Wikimedia Commons，均为自由版权并按要求署名，版权归各摄影师所有。</p>
-  <p><strong>显示真实图片（大师精选）：</strong>把自存图片放入 <code>images/</code> 文件夹并以作品 ID 命名（如 <code>images/avedon-dovima.jpg</code>），刷新即自动显示。仅限个人学习。</p>
+  <p id="footerCopyright"></p>
+  <p id="footerImages"></p>
 </footer>
 
 <script src="data.js"></script>
 <script src="data-awards.js"></script>
-<script src="app.js?v=4"></script>
+<script src="data-i18n.js"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>
