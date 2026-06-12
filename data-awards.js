@@ -11,6 +11,10 @@ window.AWARDS_META = {
   wpy:  { name: '野生动物年度摄影师 · 年度总冠军', short: 'Wildlife Photographer of the Year', cat: '野生动物', palette: ['#22301e', '#4e6a3e', '#b8c89a'] },
   sony: { name: 'Sony 世界摄影奖 · 年度摄影师', short: 'Sony World Photography Awards', cat: '综合 / 纪实', palette: ['#1a2230', '#3e5570', '#aac4dc'] },
   hass: { name: '哈苏国际摄影奖', short: 'Hasselblad Award', cat: '终身艺术成就', palette: ['#2a2620', '#6e6044', '#d8c8a0'] },
+  hm:   { name: '哈苏大师赛', short: 'Hasselblad Masters', cat: '商业与艺术 · 多类别', palette: ['#1c1c1a', '#54504a', '#d8d0c0'] },
+  canon:{ name: '佳能 · 写真新世纪', short: 'New Cosmos of Photography', cat: '新锐 / 实验影像', palette: ['#3a1014', '#8a2630', '#e8c0c0'] },
+  nikonpc: { name: '尼康国际摄影大赛', short: 'Nikon Photo Contest', cat: '综合', palette: ['#2a2410', '#6a5a18', '#f0d860'] },
+  fuji: { name: '富士 GFX 挑战资助计划', short: 'FUJIFILM GFX Challenge', cat: '创作资助', palette: ['#0e2418', '#1e5a3a', '#a8d8b8'] },
 };
 
 window.AWARDS = [
@@ -120,5 +124,22 @@ window.AWARDS = [
 { year: 2020, award: 'hass', title: '哈苏奖得主', photographer: '阿尔弗雷多·哈尔', photographerEn: 'Alfredo Jaar', note: '《卢旺达项目》《一百万张芬兰护照》——追问影像与权力关系的政治艺术家。', query: 'Alfredo Jaar Rwanda project' },
 { year: 2022, award: 'hass', title: '哈苏奖得主', photographer: '达雅妮塔·辛格', photographerEn: 'Dayanita Singh', note: '"移动博物馆"——把照片做成可重组的木结构装置，档案因此有了身体。', query: 'Dayanita Singh Museum Bhavan' },
 { year: 2023, award: 'hass', title: '哈苏奖得主', photographer: '卡丽·梅·威姆斯', photographerEn: 'Carrie Mae Weems', note: '《厨房桌系列》——一张桌子一盏灯，演完美国黑人女性的身份与尊严。', query: 'Carrie Mae Weems Kitchen Table Series' },
+
+// ───── 哈苏大师赛 Hasselblad Masters（双年制，与哈苏国际摄影奖为两个奖项） ─────
+{ year: 2023, award: 'hm', title: '哈苏大师赛 2023', titleEn: 'Hasselblad Masters 2023', photographer: '储卫民、蒂娜·伊特科宁 等六位', photographerEn: 'Weimin Chu, Tiina Itkonen, et al.', note: '创纪录的 85,000 张投稿。风光类得主是中国摄影师储卫民（《火车车窗里的西藏》）；建筑类 Tiina Itkonen、人像类 Panji Indra Permana、艺术类 Jan Pypers、街拍类 Tom Pitts、Project//21 类 Efraïm Baaijens——每位获"哈苏大师"称号、中画幅相机与创作基金。', query: 'Hasselblad Masters 2023 winners' },
+{ year: 2021, award: 'hm', title: '哈苏大师赛 2021', titleEn: 'Hasselblad Masters 2021', photographer: '各类别"哈苏大师"', photographerEn: 'Category Masters', note: '双年制商业与艺术摄影大师赛：按人像、风光、街拍等类别从全球投稿中评出"哈苏大师"，合作项目集结成《Masters》画册出版。点官方画廊看本届全部得主作品。', query: 'Hasselblad Masters 2021 winners' },
+
+// ───── 佳能 · 写真新世纪 New Cosmos of Photography（1991–2021） ─────
+{ year: 1995, award: 'canon', title: '十七岁女孩的日子', titleEn: 'Seventeen Girl Days', photographer: 'HIROMIX', photographerEn: 'HIROMIX', note: '18 岁高中生用傻瓜相机拍下的日记式快照，经评委荒木经惟力荐夺得大奖——掀起 90 年代日本"少女写真"浪潮，私摄影自此进入主流，写真新世纪最传奇的一届。', link: 'https://global.canon/en/newcosmos/gallery/grandprix/1995-hiromix/index.html', query: 'HIROMIX Seventeen Girl Days New Cosmos 1995' },
+{ year: 2017, award: 'canon', title: '十七种白', titleEn: '17 toner hvitt', photographer: '特隆·安斯滕 & 本杰明·布赖特科普夫', photographerEn: 'Trond Ansten & Benjamin Breitkopf', note: '第 40 届大奖：挪威/德国双人组的实验影像装置——写真新世纪三十年来始终偏爱越界的"非典型摄影"，比起完成度更奖励可能性。', query: 'Trond Ansten Benjamin Breitkopf 17 toner hvitt New Cosmos 2017' },
+{ year: 2021, award: 'canon', title: '湖', titleEn: 'THE LAKE', photographer: '加久直达', photographerEn: 'Naotatsu Kaku', note: '第 44 届亦是最后一届大奖。1991–2021 三十年间，写真新世纪走出了 HIROMIX 等一代代新人，是日本新锐摄影最重要的跳板；官方档案保留了历届大奖作品。', query: 'Naotatsu Kaku THE LAKE New Cosmos of Photography 2021' },
+
+// ───── 尼康国际摄影大赛 Nikon Photo Contest（1969 年创办） ─────
+{ year: 2025, award: 'nikonpc', sub: 'single', title: '乔纳斯', titleEn: 'Jonas', photographer: '蒂娜·伊特科宁', photographerEn: 'Tiina Itkonen', note: '2024–2025 届单幅组大奖：芬兰摄影师，三十年深耕格陵兰冰原与因纽特社区——她同时也是哈苏大师赛 2023 建筑类得主。', link: 'https://www.nikon.com/company/news/2025/1014_imaging_01.html', query: 'Tiina Itkonen Jonas Nikon Photo Contest 2025' },
+{ year: 2025, award: 'nikonpc', sub: 'story', title: 'Farewell-able', titleEn: 'Farewell-able', photographer: '杨磊', photographerEn: 'Lei Yang', note: '2024–2025 届组照（Photo Story）大奖：中国摄影师。尼康大赛创办于 1969 年，是历史最悠久的相机品牌国际赛之一，本届投稿来自 180 个国家和地区。', link: 'https://www.nikon.com/company/news/2025/1014_imaging_01.html', query: 'Lei Yang Farewell-able Nikon Photo Contest 2025' },
+
+// ───── 富士 GFX 挑战资助计划 FUJIFILM GFX Challenge（2021 年创办，年度制） ─────
+{ year: 2025, award: 'fuji', title: 'GFX 挑战资助计划 2025', titleEn: 'GFX Challenge 2025', photographer: '5 个全球大奖 + 10 个区域大奖得主', photographerEn: '5 Global + 10 Regional grantees', note: '从全球 2,800+ 申请中选出 15 个创作项目：得主获最高 1 万美元资助与 GFX 中画幅设备完成拍摄，成片在官网与全球巡展发布——资助"对创作者最重要的题材"。', query: 'Fujifilm GFX Challenge Grant Program 2025 winners' },
+{ year: 2024, award: 'fuji', title: 'GFX 挑战资助计划 2024', titleEn: 'GFX Challenge 2024', photographer: '5 个全球大奖 + 10 个区域大奖得主', photographerEn: '5 Global + 10 Regional grantees', note: '富士 2021 年创办的年度资助计划：与"评照片"的比赛不同，它资助的是尚未完成的项目——官方年度页可看每个项目从提案到成片的全过程。', query: 'Fujifilm GFX Challenge Grant Program 2024 winners' },
 
 ];

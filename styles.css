@@ -311,6 +311,10 @@ main { max-width: 1280px; margin: 0 auto; padding: 30px 24px 60px; }
 .award-wpy  { background: rgba(110, 160, 90, 0.15);  color: #9ec487; }
 .award-sony { background: rgba(90, 140, 200, 0.15);  color: #8fb6e0; }
 .award-hass { background: var(--gold-soft);           color: var(--gold); }
+.award-hm   { background: rgba(216, 208, 192, 0.13); color: #cfc8b8; }
+.award-canon{ background: rgba(200, 70, 85, 0.15);   color: #e09aa4; }
+.award-nikonpc { background: rgba(220, 190, 60, 0.13); color: #e0cc70; }
+.award-fuji { background: rgba(60, 170, 110, 0.14);  color: #88cca8; }
 .award-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
 .award-link {
   flex-shrink: 0; align-self: center; text-decoration: none;

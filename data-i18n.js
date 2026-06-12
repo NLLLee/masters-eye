@@ -169,4 +169,14 @@ window.EN_AWARDS = {
   'hass-2020': { title: 'Hasselblad Award Laureate', note: 'The Rwanda Project, A Million Finnish Passports — the politics of the image.' },
   'hass-2022': { title: 'Hasselblad Award Laureate', note: 'Mobile museums — photographs built into reconfigurable wooden bodies.' },
   'hass-2023': { title: 'Hasselblad Award Laureate', note: 'The Kitchen Table Series — one table, one lamp, the dignity of Black womanhood.' },
+
+  'hm-2023': { title: 'Hasselblad Masters 2023', note: "A record 85,000 entries. Landscape went to China's Weimin Chu (Tibet from a train window); Architecture to Tiina Itkonen, Portrait to Panji Indra Permana, Art to Jan Pypers, Street to Tom Pitts, Project//21 to Efraïm Baaijens." },
+  'hm-2021': { title: 'Hasselblad Masters 2021', note: 'The biennial commercial-and-art competition: category Masters chosen from worldwide entries, with a collaborative Masters book to follow. Open the official gallery for every winning work.' },
+  'canon-1995': { title: 'Seventeen Girl Days', note: "An 18-year-old's point-and-shoot diary, championed by juror Nobuyoshi Araki — it ignited 1990s Japanese girl photography and took the private snapshot mainstream." },
+  'canon-2017': { title: '17 toner hvitt', note: 'The 40th Grand Prize: an experimental Norwegian–German duo. New Cosmos always rewarded possibility over polish.' },
+  'canon-2021': { title: 'THE LAKE', note: 'The 44th and final Grand Prize. Across 1991–2021 New Cosmos was the great launchpad of new Japanese photography; the official archive keeps every Grand Prize work.' },
+  'nikonpc-2025-single': { title: 'Jonas', note: 'Single Photo Grand Prize 2024–2025: the Finnish photographer has spent three decades on Greenland\'s ice and Inuit communities — she is also a Hasselblad Masters 2023 winner.' },
+  'nikonpc-2025-story': { title: 'Farewell-able', note: 'Photo Story Grand Prize 2024–2025, by Chinese photographer Lei Yang. Founded in 1969, the Nikon contest is among the oldest brand-run internationals; this edition drew entries from 180 countries.' },
+  'fuji-2025': { title: 'GFX Challenge 2025', note: '15 projects chosen from 2,800+ applications: grantees receive up to $10,000 and GFX medium-format gear to realize the work, published on the official site and touring exhibitions.' },
+  'fuji-2024': { title: 'GFX Challenge 2024', note: 'Unlike contests that judge finished pictures, this annual program funds unfinished projects — each year page shows the journey from proposal to final work.' },
 };

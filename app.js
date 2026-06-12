@@ -35,7 +35,7 @@
       allSources: '全部来源机构',
       myFavs: '♥ 我的收藏',
       emptyMasters: '没有匹配的作品 — 换个关键词试试。',
-      awardsNote: '四大权威奖项历年得主真实档案。每个条目和年份都附<strong>官方画廊直达链接（🏛）</strong>——当年公布多少作品就能看到多少，全部在官网原图欣赏。空缺年份为尚未核实或奖项未设立；新奖揭晓后自动补录。',
+      awardsNote: '四大权威奖项 + 四大相机品牌赛（哈苏大师赛 / 佳能写真新世纪 / 尼康国际摄影大赛 / 富士 GFX 挑战）历年得主真实档案。每个条目和年份都附<strong>官方画廊直达链接（🏛）</strong>——当年公布多少作品就能看到多少，全部在官网原图欣赏。空缺年份为尚未核实或奖项未设立；新奖揭晓后自动补录。',
       archivesTitle: '📚 官方档案馆直达 — 历年完整获奖作品 / 时尚大片都在这里看',
       allAwards: '全部奖项',
       allYears: '全部年份 1990–2026',
@@ -85,7 +85,7 @@
       allSources: 'All sources',
       myFavs: '♥ My favorites',
       emptyMasters: 'No matching works — try another keyword.',
-      awardsNote: 'Authentic year-by-year records of four major awards. Every entry and year links straight to the <strong>official gallery (🏛)</strong> — however many works each year produced, you will see them all, full-size, at the source. Gaps are years not yet verified or before an award existed; new winners are added as they are announced.',
+      awardsNote: 'Authentic year-by-year records of four major awards plus four camera-brand competitions (Hasselblad Masters / Canon New Cosmos / Nikon Photo Contest / FUJIFILM GFX Challenge). Every entry and year links straight to the <strong>official gallery (🏛)</strong> — however many works each year produced, you will see them all, full-size, at the source. Gaps are years not yet verified or before an award existed; new winners are added as they are announced.',
       archivesTitle: '📚 Official archives — complete winners and fashion editorials, year by year',
       allAwards: 'All awards',
       allYears: 'All years 1990–2026',
@@ -138,6 +138,10 @@
     wpy: { name: 'Wildlife Photographer of the Year · Grand Title', cat: 'Wildlife' },
     sony: { name: 'Sony World Photography Awards · Photographer of the Year', cat: 'General / Documentary' },
     hass: { name: 'Hasselblad Award', cat: 'Lifetime achievement' },
+    hm: { name: 'Hasselblad Masters', cat: 'Commercial & art · multi-category' },
+    canon: { name: 'Canon · New Cosmos of Photography', cat: 'Emerging / experimental' },
+    nikonpc: { name: 'Nikon Photo Contest', cat: 'General' },
+    fuji: { name: 'FUJIFILM GFX Challenge Grant Program', cat: 'Creative grants' },
   };
   const metaName = (k) => lang === 'en' ? META_EN[k].name : AWARDS_META[k].name;
   const metaCat = (k) => lang === 'en' ? META_EN[k].cat : AWARDS_META[k].cat;
@@ -148,7 +152,13 @@
     wpy: (y) => `https://www.nhm.ac.uk/wpy/gallery?tags=year-${y}`,
     sony: (y) => `https://www.worldphoto.org/sony-world-photography-awards/winners-galleries/${y}`,
     hass: () => 'https://www.hasselbladfoundation.org/wp/hasselblad-award-winners/',
+    hm: (y) => `https://www.hasselblad.com/inspiration/masters/${y}/`,
+    canon: () => 'https://global.canon/en/newcosmos/gallery/grandprix/',
+    nikonpc: () => 'https://www.nikon-photocontest.com',
+    fuji: (y) => `https://www.fujifilm-x.com/global/gfx-challenge-grant-program/year-${y}/`,
   };
+  const officialUrl = (a) => a.link || OFFICIAL_URL[a.award](a.year);
+  const kid = (a) => `${a.award}-${a.year}${a.sub ? '-' + a.sub : ''}`;
 
   const ARCHIVES = [
     { zh: '世界新闻摄影奖 · 全部年度档案', en: 'World Press Photo · full collection', dzh: '1955 至今全部获奖作品官方档案，按年浏览', den: 'Every winning photo since 1955, browsable by year', url: 'https://www.worldpressphoto.org/collection' },
@@ -160,6 +170,10 @@
     { zh: 'Magnum Photos 玛格南', en: 'Magnum Photos', dzh: '布列松创立的传奇图片社，大师作品库', den: 'The legendary cooperative founded by Cartier-Bresson', url: 'https://www.magnumphotos.com' },
     { zh: '国家地理摄影', en: 'National Geographic Photography', dzh: '专题报道与年度摄影精选', den: 'Features and best-of-year selections', url: 'https://www.nationalgeographic.com/photography' },
     { zh: '尼康微观世界 · 历年获奖', en: 'Nikon Small World · galleries', dzh: '1975 至今显微摄影大赛全部获奖作品', den: 'All photomicrography winners since 1975', url: 'https://www.nikonsmallworld.com/galleries' },
+    { zh: '哈苏大师赛 · 最新一届画廊', en: 'Hasselblad Masters · latest edition', dzh: '双年制大师赛各类别得主作品（2023 届）', den: 'Category winners of the biennial Masters (2023 edition)', url: 'https://www.hasselblad.com/inspiration/masters/2023/' },
+    { zh: '佳能写真新世纪 · 大奖档案', en: 'Canon New Cosmos · Grand Prize archive', dzh: '1991–2021 三十届全部大奖作品官方档案', den: 'Every Grand Prize work across all 30 editions, 1991–2021', url: 'https://global.canon/en/newcosmos/gallery/grandprix/' },
+    { zh: '尼康国际摄影大赛', en: 'Nikon Photo Contest', dzh: '1969 年创办，历届获奖作品官方画廊', den: 'Official winners galleries since 1969', url: 'https://www.nikon-photocontest.com' },
+    { zh: '富士 GFX 挑战资助计划', en: 'FUJIFILM GFX Challenge', dzh: '历年资助项目完整成片（2021 至今）', den: 'Complete funded projects, 2021 to present', url: 'https://www.fujifilm-x.com/global/gfx-challenge-grant-program/' },
     { zh: 'Dior 官方', en: 'Dior official', dzh: '当季 Campaign 与品牌影像在官网及官方社媒发布', den: 'Current campaigns on the official site and social channels', url: 'https://www.dior.com' },
     { zh: 'Louis Vuitton 官方', en: 'Louis Vuitton official', dzh: '当季 Campaign 与品牌影像', den: 'Current campaigns and brand imagery', url: 'https://www.louisvuitton.com' },
     { zh: 'Gucci 官方', en: 'Gucci official', dzh: '当季 Campaign 与品牌影像', den: 'Current campaigns and brand imagery', url: 'https://www.gucci.com' },
@@ -174,8 +188,8 @@
   const pTitleBig = (p) => lang === 'en' ? (p.titleEn || p.title) : p.title;
   const pTitleSmall = (p) => lang === 'en' ? p.title : p.titleEn;
   const pPhotog = (p) => lang === 'en' ? p.photographerEn : `${p.photographer} · ${p.photographerEn}`;
-  const aTitle = (a) => { const e = EN_AWARDS[`${a.award}-${a.year}`]; return lang === 'en' ? ((e && e.title) || a.titleEn || a.title) : a.title; };
-  const aNote = (a) => { const e = EN_AWARDS[`${a.award}-${a.year}`]; return lang === 'en' ? ((e && e.note) || a.note) : a.note; };
+  const aTitle = (a) => { const e = EN_AWARDS[kid(a)]; return lang === 'en' ? ((e && e.title) || a.titleEn || a.title) : a.title; };
+  const aNote = (a) => { const e = EN_AWARDS[kid(a)]; return lang === 'en' ? ((e && e.note) || a.note) : a.note; };
   const aPhotog = (a) => lang === 'en' ? a.photographerEn : `${a.photographer} ${a.photographerEn}`;
   const catText = (key) => L().cats[key] || key;
   const srcGroupText = (g) => (lang === 'en' && L().sourceGroups[g]) || g;
@@ -357,21 +371,21 @@
   function openAwardModal(a) {
     const meta = AWARDS_META[a.award];
     openModal({
-      id: `award-${a.award}-${a.year}`,
+      id: `award-${kid(a)}`,
       title: a.title, titleEn: a.titleEn || '',
       photographer: a.photographer, photographerEn: a.photographerEn,
       year: String(a.year), palette: meta.palette, query: a.query,
     }, {
       fav: false,
       titleBig: aTitle(a),
-      titleSmall: lang === 'en' ? '' : (a.titleEn || (EN_AWARDS[`${a.award}-${a.year}`] || {}).title || ''),
+      titleSmall: lang === 'en' ? '' : (a.titleEn || (EN_AWARDS[kid(a)] || {}).title || ''),
       photog: aPhotog(a),
       catText: metaCat(a.award),
       source: lang === 'en' ? META_EN[a.award].name.split(' · ')[0] : meta.short,
       award: `${metaName(a.award)} · ${a.year}`,
       desc: aNote(a),
       tags: [metaCat(a.award)],
-      officialUrl: OFFICIAL_URL[a.award](a.year),
+      officialUrl: officialUrl(a),
     });
   }
 
@@ -412,14 +426,14 @@
         <div class="award-rows">
           ${items.map((a) => {
             return `
-            <div class="award-row" data-key="award-${a.award}-${a.year}" tabindex="0" role="button">
+            <div class="award-row" data-key="award-${kid(a)}" tabindex="0" role="button">
               <span class="award-badge award-${a.award}">${metaName(a.award).split(' · ')[0]}</span>
               <div class="award-main">
-                <span class="award-title">${esc(aTitle(a))}${lang === 'zh' && a.titleEn ? ` <i>${esc(a.titleEn)}</i>` : ''}</span>
+                <span class="award-title">${esc(aTitle(a))}${lang === 'zh' && a.titleEn && a.titleEn !== a.title ? ` <i>${esc(a.titleEn)}</i>` : ''}</span>
                 <span class="award-ph">${esc(aPhotog(a))}</span>
                 <span class="award-note">${esc(aNote(a))}</span>
               </div>
-              <a class="award-link" href="${OFFICIAL_URL[a.award](a.year)}" target="_blank" rel="noopener" title="${esc(t.officialGallery)}">${t.officialGalleryYear(a.year)} ↗</a>
+              <a class="award-link" href="${officialUrl(a)}" target="_blank" rel="noopener" title="${esc(t.officialGallery)}">${t.officialGalleryYear(a.year)} ↗</a>
             </div>`;
           }).join('')}
         </div>
@@ -431,7 +445,7 @@
     if (e.target.closest('a.award-link')) return; // 官方链接直接放行
     const row = e.target.closest('.award-row');
     if (!row) return;
-    const a = AWARDS.find((x) => `award-${x.award}-${x.year}` === row.dataset.key);
+    const a = AWARDS.find((x) => `award-${kid(x)}` === row.dataset.key);
     if (a) openAwardModal(a);
   });
 
